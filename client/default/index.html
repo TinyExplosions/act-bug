@@ -1,2 +1,23 @@
-<button class="normal">Successfull Button</button>
-<button class="broken">Broken Button</button>
+<button onClick="doact(false, false);">Successful 1 Button</button><br />
+<button onClick="doact(false, true);">Successful 2 Button</button><br />
+<button onClick="doact(true, false);">Broken Button</button>
+
+
+<script>
+
+doact = function(breakme, stringonly) {
+    $fh.act({
+        act: "testing",
+        req: {
+            breakme: breakme,
+            stringonly: stringonly
+        }
+    }, function(res){
+        console.log("Success!",res);
+    }, function(err){
+        console.log("Error!",err);
+    });
+}
+
+
+</script>

@@ -1,7 +1,11 @@
 exports.testing = function(params, callback) {
     if(params.breakme) {
-        return ("Broken", null);
+        return callback("Broken", null);
     } else {
-        return (null, "awesome sauce");
+        if(params.stringonly) {
+            return callback(null, "awesome sauce");
+        } else {
+            return callback(null, {test: "awesome sauce"});
+        }
     }
 };
